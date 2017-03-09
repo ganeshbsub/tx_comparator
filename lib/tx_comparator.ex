@@ -2,20 +2,22 @@ defmodule TxComparator do
   def compare(string1, string2, synonyms, words_to_skip) do
     token_list_1 = 
       string1
-      |> tokenizer
-      |> analyzer(synonyms, words_to_skip)
+      |> String.downcase
+      |> tokeniser
+      |> analyser(synonyms, words_to_skip)
+
     token_list_2 = 
       string1
-      |> tokenizer
-      |> analyzer(synonyms, words_to_skip)
+      |> String.downcase
+      |> tokeniser
+      |> analyser(synonyms, words_to_skip)
+
     comparator(token_list_1, token_list_2)
   end
 
-  defp tokenizer(string) do
-    
-  end
+  defp tokeniser(string), do: String.split(string, ~r/[^\p{L}'-]/u, trim: true)
 
-  defp analyzer(string, synonyms, words_to_skip) do
+  defp analyser(string, synonyms, words_to_skip) do
     
   end
 
