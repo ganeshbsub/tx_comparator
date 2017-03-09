@@ -6,7 +6,7 @@ defmodule TxComparator do
       |> tokeniser
       |> remove_words(words_to_skip)
       |> generalise(synonyms)
-      |> Enum.uniq
+      |> MapSet.new
 
     token_list_2 = 
       string1
@@ -14,7 +14,7 @@ defmodule TxComparator do
       |> tokeniser
       |> remove_words(words_to_skip)
       |> generalise(synonyms)
-      |> Enum.uniq
+      |> MapSet.new
 
     comparator(token_list_1, token_list_2)
   end
