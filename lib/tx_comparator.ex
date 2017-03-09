@@ -4,12 +4,14 @@ defmodule TxComparator do
       string1
       |> String.downcase
       |> tokeniser
+      |> Enum.uniq
       |> analyser(synonyms, words_to_skip)
 
     token_list_2 = 
       string1
       |> String.downcase
       |> tokeniser
+      |> Enum.uniq
       |> analyser(synonyms, words_to_skip)
 
     comparator(token_list_1, token_list_2)
