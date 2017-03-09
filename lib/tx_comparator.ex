@@ -24,12 +24,14 @@ defmodule TxComparator do
   defp remove_words(tokens, words_to_skip), do: Enum.reject(tokens, fn(token) -> Enum.member?(words_to_skip, token) end)
 
   defp generalise(tokens, synonyms) do
-    Enum.reduce(tokens, fn(token, new_tokens) -> 
-                          case Map.get(synonyms, token) do
-                            nil -> new_tokens ++ [token]
-                            synonym -> new_tokens ++ [synonym]
-                          end
-                        end)
+    Enum.reduce(tokens, 
+      fn(token, new_tokens) -> 
+        case Map.get(synonyms, token) do
+          nil -> new_tokens ++ [token]
+          synonym -> new_tokens ++ [synonym]
+        end
+      end
+    )
   end
 
   defp comparator(token_list_1, token_list_2) do
