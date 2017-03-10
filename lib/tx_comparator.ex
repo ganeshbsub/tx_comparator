@@ -26,7 +26,7 @@ defmodule TxComparator do
   @doc """
   tokeniser(string) tokenises a string and returns a list of tokens
   """
-  def tokeniser(string), do: String.split(string, ~r/[^\p{L}'-]/u, trim: true)
+  def tokeniser(string), do: String.split(string, ~r/[^\p{L}'-\d]/u, trim: true)
 
   @doc """
   remove_words(token_list, words_to_skip_list) removes unnecesaary tokens from token_list using the words_to_skip_list
