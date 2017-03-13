@@ -3,13 +3,21 @@ defmodule TxComparator.Mixfile do
 
   def project do
     [app: :tx_comparator,
-     version: "0.1.0",
+     version: "0.0.1",
      elixir: "~> 1.3",
+     description: "A simple text comparator",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
   end
 
+  def package do
+  [ name: :tx_comparator,
+    files: ["lib", "mix.exs"],
+    maintainers: ["Ganesh Balasubramanian"],
+    licenses: ["MIT"],
+    links: %{"Github" => "https://github.com/ganeshbsub/tx_comparator"},
+  ]
   # Configuration for the OTP application
   #
   # Type "mix help compile.app" for more information

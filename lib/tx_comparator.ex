@@ -1,6 +1,6 @@
 defmodule TxComparator do
   @doc """
-  compare(string1, string2, synonyms_map, words_to_skip_list) tokenises both strings, removes unnecessary words,
+  tokenises both strings, removes unnecessary words,
   replaces tokens with synonyms where possible and provides a score based on the comparison of the final list of tokens
 
   Returns score.
@@ -32,7 +32,7 @@ defmodule TxComparator do
 
 
   @doc """
-  tokeniser(string) tokenises a string and returns a list of tokens
+  tokenises a string and returns a list of tokens
 
   Returns `[tokens]`
 
@@ -45,7 +45,7 @@ defmodule TxComparator do
 
 
   @doc """
-  remove_words(token_list, words_to_skip_list) removes unnecesaary tokens from token_list using the words_to_skip_list
+  removes unnecesaary tokens from token_list using the words_to_skip_list
   
   Returns `[tokens]`
 
@@ -59,7 +59,7 @@ defmodule TxComparator do
 
 
   @doc """
-  generalise(token_list, synonym_map) replaces tokens in token_list using synonym_map where possible.
+  replaces tokens in token_list using synonym_map where possible.
   synonym map should be in the following format: %{"token" => "synonym"}. Please avoid colon-notation for the key-value pairs.
   
   Returns `[tokens]`
@@ -83,7 +83,7 @@ defmodule TxComparator do
 
 
   @doc """
-  comparator(token_mapset_1, token_mapset_2) compares two mapsets and returns a score between 0 and 1 based on how much they match.
+  compares two mapsets and returns a score between 0 and 1 based on how much they match.
   
   Returns `score`
 
